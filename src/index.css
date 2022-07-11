@@ -10,6 +10,10 @@ body {
   font-family: "Karla", sans-serif;
 }
 
+main {
+  padding: 2em;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -33,11 +37,41 @@ body {
 }
 
 .header--project {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1rem;
   letter-spacing: 0em;
   text-align: right;
   margin-left: auto;
+}
+
+.form {
+  display: grid;
+  grid-template: 40px 40px / 1fr 1fr;
+  gap: 1em;
+}
+
+.form--input {
+  border: 1px solid #d5d4d8;
+  border-radius: 5px;
+
+  font-family: "Karla", sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  text-indent: 0.5em;
+}
+
+.form--button {
+  grid-column: 1 / -1;
+  background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+
+  color: #ffffff;
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
