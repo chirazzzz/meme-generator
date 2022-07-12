@@ -75,3 +75,9 @@ main {
   font-weight: 700;
   letter-spacing: -1px;
 }
+
+
+.meme--image {
+  margin: 0 auto;
+  max-width: 100%;
+}
