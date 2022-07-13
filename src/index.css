@@ -78,6 +78,6 @@ main {
 
 
 .meme--image {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   max-width: 100%;
 }

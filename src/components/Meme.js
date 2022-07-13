@@ -2,14 +2,42 @@ import React, { useState } from "react";
 import memeData from "../memesData";
 
 const Meme = () => {
-  const [memeImage, setMemeImage] = useState('')
-  
-  function getMeme() {
-    const arr = memeData.data.memes;
-    const randomMeme = Math.floor(Math.random() * arr.length);
+  /**
+   * Challenge: Update our state to save the meme-related
+   * data as an object called `meme`. It should have the
+   * following 3 properties:
+   * topText, bottomText, randomImage.
+   *
+   * The 2 text states can default to empty strings for now,
+   * amd randomImage should default to "http://i.imgflip.com/1bij.jpg"
+   *
+   * Next, create a new state variable called `allMemeImages`
+   * which will default to `memesData`, which we imported above
+   *
+   * Lastly, update the `getMemeImage` function and the markup
+   * to reflect our newly reformed state object and array in the
+   * correct way.
+   */
 
-    const meme = arr[randomMeme].url;
-    setMemeImage(meme)
+  const [meme, setMeme] = useState({
+    topText: "",
+    bottomText: "",
+    randomImage: "http://i.imgflip.com/1bij.jpg",
+  });
+
+  const [allMemeImages, setAllMemeImages] = useState(memeData)
+
+  function getMemeImage() {
+    const memeArr = allMemeImages.data.memes;
+    const randomMeme = Math.floor(Math.random() * memeArr.length);
+    const url = memeArr[randomMeme].url;
+
+    setMeme(prevMeme => {
+        return {
+            ...prevMeme,
+            randomImage: url
+        }
+    });
   }
 
   return (
@@ -29,11 +57,11 @@ const Meme = () => {
           placeholder="Bottom text"
           name="secondLine"
         />
-        <button onClick={getMeme} className="form--button" type="submit">
+        <button onClick={getMemeImage} className="form--button" type="submit">
           Get a new meme image 🖼
         </button>
       </div>
-      <img src={memeImage} alt="Random meme" className="meme--image"/>
+      <img src={meme.randomImage} alt="Random meme" className="meme--image" />
     </main>
   );
 };
